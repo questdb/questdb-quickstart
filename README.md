@@ -54,4 +54,10 @@ If you want to run some interesting queries on top of larger demo datasets, you 
 
 ## Ingesting real-time data using the official clients in Go, Java, or Python
 
+Follow the instructions at https://github.com/javier/questdb-quickstart/tree/main/ingestion/go
+
+
 ## Real-time dashboards with Grafana and QuestDB using the PostgreSQL connector 
+
+Follow the instructions at https://github.com/javier/questdb-quickstart/tree/main/dashboard/grafana
+
