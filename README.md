@@ -15,7 +15,7 @@ QuestDB is an Apache 2.0 licensed time-series database for high throughput inges
 
 There are [many ways to install QuestDB](https://questdb.io/docs/get-started/docker/), but I am choosing docker for portability. Note I won't be using a docker volume and the data will be ephemeral. Check the QuestDB docks to see how to start with a persistent directory.
 
-```docker run -p 9000:9000 -p 9009:9009 -p 8812:8812 -p 9003:9003 questdb/questdb:latest```
+```docker run --add-host=host.docker.internal:host-gateway -p 9000:9000 -p 9009:9009 -p 8812:8812 -p 9003:9003 questdb/questdb:latest```
 
 Port 9000 serves the web console, port 9009 is for streaming ingestion, port 8812 is for PostgreSQL-protocol reads or writes, port 9003 is a monitoring/metrics endpoint
 

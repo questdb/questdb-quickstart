@@ -10,7 +10,7 @@ If you still don't have a local grafana, you can start one with a persistent vol
 docker volume create grafana-storage
 
 ### start grafana
-docker run -d -p 3000:3000 --name=grafana -v grafana-storage:/var/lib/grafana grafana/grafana-oss
+docker run --add-host=host.docker.internal:host-gateway -p 3000:3000 --name=grafana -v grafana-storage:/var/lib/grafana grafana/grafana-oss
 
 ## Creating the connection to QuestDB
 
