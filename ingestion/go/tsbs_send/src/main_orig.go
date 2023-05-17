@@ -25,10 +25,10 @@ func main() {
 	)
 
 	iter := 1000
-	batch := 1000
+	batch := 100
 
 	ts := 1
-	delay_ms := 50
+	delay_ms := 500
 
 	min_lat := 19.50139
 	max_lat := 64.85694
