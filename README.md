@@ -8,7 +8,7 @@ QuestDB is an Apache 2.0 licensed time-series database for high throughput inges
 * Loading data using a CSV
 * Using the web console for interactive queries
 * Ingesting real-time data using the official clients in Go, Java, or Python
-* Real-time dashboards with Grafana and QuestDB using the PostgreSQL connector 
+* Real-time dashboards with Grafana and QuestDB using the PostgreSQL connector
 
 
 ## Getting started with QuestDB on docker
@@ -32,7 +32,7 @@ Go back to the web console main screen by clicking the `</>` icon on the left me
 
 ## Using the web console for interactive queries
 
-If the name `trips.csv` is not showing at the `tables` section, click the reload icon (a circle formed by two arrows) at the top left. 
+If the name `trips.csv` is not showing at the `tables` section, click the reload icon (a circle formed by two arrows) at the top left.
 
 You can now click on the table name to see the auto-discovered schema.
 
@@ -52,12 +52,16 @@ You can find the complete SQL reference for QuestDB (including time-series exten
 
 If you want to run some interesting queries on top of larger demo datasets, you can head to [QuestDB live demo](https://demo.questdb.io/) and just click on the top where it says 'Example Queries'. The `trips` dataset at that live demo has over 1.6 billion rows. All the datasets at the demo site are static, except for the `trades` table, which pulls crypto prices from Coinbase's API every second or so.
 
+I have compiled some of the queries you can run on the demo dataset in [this markdown file](./demo_queries.md)
+
 ## Ingesting real-time data using the official clients in Go, Java, or Python
 
-Follow the instructions at https://github.com/javier/questdb-quickstart/tree/main/ingestion/go
+Follow the instructions at
+* https://github.com/javier/questdb-quickstart/tree/main/ingestion/go
+* https://github.com/javier/questdb-quickstart/tree/main/ingestion/java
+* https://github.com/javier/questdb-quickstart/tree/main/ingestion/python
 
-
-## Real-time dashboards with Grafana and QuestDB using the PostgreSQL connector 
+## Real-time dashboards with Grafana and QuestDB using the PostgreSQL connector
 
 Follow the instructions at https://github.com/javier/questdb-quickstart/tree/main/dashboard/grafana
 
