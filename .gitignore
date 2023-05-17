@@ -11,6 +11,7 @@
 .mtj.tmp/
 
 # Package Files #
+target/
 *.jar
 *.war
 *.nar
@@ -25,3 +26,7 @@ hs_err_pid*
 
 __debug_bin
 go.sum
+
+.DS_Store
+.idea
+ilp_ingestion.iml
