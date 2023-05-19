@@ -42,17 +42,34 @@ The data we loaded represents real taxi rides in the city of New York in January
 
 Since the name of the table is not great, let's rename it by running this SQL statement
 
-`rename table 'trips.csv' to  trips`
+`rename table 'trips.csv' to  trips_2018`
 
 And now we can run queries like
 
-`select count() from trips`
+`select count() from trips_2018`
 
 You can find the complete SQL reference for QuestDB (including time-series extensions) at [the docs](https://questdb.io/docs/concept/sql-execution-order/)
 
 If you want to run some interesting queries on top of larger demo datasets, you can head to [QuestDB live demo](https://demo.questdb.io/) and just click on the top where it says 'Example Queries'. The `trips` dataset at that live demo has over 1.6 billion rows. All the datasets at the demo site are static, except for the `trades` table, which pulls crypto prices from Coinbase's API every second or so.
 
 I have compiled some of the queries you can run on the demo dataset in [this markdown file](./demo_queries.md)
+
+## Loading CSV data using the API
+
+We can also load CSV files using the API. In this case, we can add schema details (for every column or just specific ones),
+and table details, such as the name, or the partitioning strategy.
+
+In this repository, I am providing a dataset with energy consumption and forecast data in 15-minutes intervals for a few
+European countries. This file is a subset of [the original](https://data.open-power-system-data.org/time_series/2020-10-06)
+and contains data only for 2018 (205,189 rows).
+
+Import using curl:
+
+```
+curl -F schema='[{"name":"timestamp", "type": "TIMESTAMP", "pattern": "yyyy-MM-dd HH:mm:ss"}]' -F data=@energy_2018.csv 'http://localhost:9000/imp?overwrite=false&name=energy_2018&timestamp=timestamp&partitionBy=MONTH'
+```
+
+Navigate to the [QuestDB Web Console](http://localhost:9000) and explore the table we just created.
 
 ## Ingesting real-time data using the official clients in Go, Java, or Python
 
