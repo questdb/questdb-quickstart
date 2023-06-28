@@ -4,21 +4,30 @@ import sys
 import random
 import time
 
-HOST = 'localhost'
-PORT = 9009
+HOST = os.getenv('QDB_CLIENT_HOST', 'localhost')
+PORT = os.getenv('QDB_CLIENT_PORT', 9009)
+TLS = os.getenv('QDB_CLIENT_TLS', False ).lower() in ('true', '1', 't')
+AUTH_KID = os.getenv('QDB_CLIENT_AUTH_KID')
+AUTH_D = os.getenv('QDB_CLIENT_AUTH_D')
+AUTH_X = os.getenv('QDB_CLIENT_AUTH_X')
+AUTH_Y = os.getenv('QDB_CLIENT_AUTH_Y')
+
 DEVICE_TYPES = ["blue", "red", "green", "yellow"]
-ITER = 1000
-BATCH = 100
-DELAY = 0.5
+ITER = 3600
+BATCH = 10
+DELAY = 1
 MIN_LAT = 19.50139
 MAX_LAT = 64.85694
 MIN_LON = -161.75583
 MAX_LON = -68.01197
 
 
-def send(host: str = 'localhost', port: int = 9009):
+def send(host: str = HOST, port: int = PORT):
     try:
-        with Sender(host, port) as sender:
+        auth = None
+        if AUTH_KID is not None and AUTH_KID is not None and AUTH_D is not None and AUTH_X is not None and AUTH_Y is not None:
+            auth = ( AUTH_KID, AUTH_D, AUTH_X, AUTH_Y )
+        with Sender(host, port, auth=auth, tls=TLS) as sender:
             for it in range(ITER):
                 for i in range(BATCH):
                     sender.row(
