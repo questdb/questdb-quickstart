@@ -1,3 +1,4 @@
 questdb
 yliveticker
 psycopg
+faker
