@@ -14,6 +14,7 @@ def on_new_row(ws, msg):
         with connection.cursor() as cur:
             cur.execute('''
             INSERT INTO live_ticker(
+                timestamp,
                 id,
                 exchange,
                 quoteType,
@@ -22,10 +23,10 @@ def on_new_row(ws, msg):
                 changePercent,
                 dayVolume,
                 change,
-                priceHint,
-                timestamp
+                priceHint
                 )
                 VALUES(
+                    %(timestamp)s,
                     %(id)s,
                     %(exchange)s,
                     %(quoteType)s,
@@ -34,8 +35,8 @@ def on_new_row(ws, msg):
                     %(changePercent)s,
                     %(dayVolume)s ,
                     %(change)s,
-                    %(priceHint)s,
-                    %(timestamp)s  );
+                    %(priceHint)s
+                    );
                 '''
             , msg
             )
@@ -53,6 +54,7 @@ if __name__ == '__main__':
         with connection.cursor() as cur:
             cur.execute('''
             CREATE TABLE IF NOT EXISTS live_ticker(
+                 timestamp TIMESTAMP,
                 'id' SYMBOL capacity 256 CACHE,
                 exchange SYMBOL capacity 256 CACHE,
                 quoteType LONG,
@@ -61,8 +63,7 @@ if __name__ == '__main__':
                 changePercent DOUBLE,
                 dayVolume DOUBLE,
                 change DOUBLE,
-                priceHint LONG,
-                timestamp TIMESTAMP
+                priceHint LONG
                 ) TIMESTAMP (timestamp) PARTITION BY DAY WAL;
             '''
             )
