@@ -10,6 +10,7 @@ demo Grafana dashboard provided in this quickstart works on this table
 You can install each dependency manually using `pip`, or just all of them via
 
 `cd tsbs_send`
+
 `pip install -r requirements.txt`
 
 ## IoT simulated data: ilp_ingestion.py demo
