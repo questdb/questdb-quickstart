@@ -2,10 +2,10 @@
 
 We provide three different scripts to ingest data into QuestDB:
 
-* ilp_ingestion: simulates IoT data using the ILP protocol. It only requires the questdb library. This script is also available in the Go and JAVA samples. The
+* `ilp_ingestion.py`: simulates IoT data using the ILP protocol. It only requires the questdb library. This script is also available in the Go and JAVA samples. The
 demo Grafana dashboard provided in this quickstart works on this table
-* app_monitoring_ingestion: simulates app observability data using the PostgreSQL protocol. It requires the psycopg and the faker libraries
-* ticker_ingestion: reads real live data from Yahoo Finance and inserts into QuestDB using the PostgreSQL protocol. It requires the psycopg and the yliveticker libraries
+* `app_monitoring_ingestion.py`: simulates app observability data using the PostgreSQL protocol. It requires the psycopg and the faker libraries
+* `ticker_ingestion.py`: reads real live data from Yahoo Finance and inserts into QuestDB using the PostgreSQL protocol. It requires the psycopg and the yliveticker libraries
 
 You can install each dependency manually using `pip`, or just all of them via
 
@@ -74,65 +74,6 @@ Then
 
 `Select count() from app_monitor`
 
-
-## App observability simulated data: app_monitoring_ingestion.py demo
-
-This demo program will generate random data (using the Faker library) simulating application usage data into a table named "app_monitor".
-Data is ingested using the pg_wire protocol. Note we don't need to create the table beforehand, as the script starts with a call to `CREATE TABLE IT NOT EXISTS`.
-
-This demo will generate one row every 100 milliseconds until stopped. You can interrupt the program at any point while executing without any side effects.
-
-### Configuration
-
-It defaults to localhost with all the QuestDB defaults, but can be adapted to use different credentials (including QuestDB Cloud) by setting these environment variables:
-* QDB_CLIENT_HOST, defaults to '127.0.0.1'
-* QDB_CLIENT_PORT, defaults to 8812
-* QDB_CLIENT_PG_USER, defaults to 'admin'
-* QDB_CLIENT_PG_PASSWORD, defaults to 'quest'
-
-### Running the program
-
-`python app_monitoring_ingestion.py`
-
-### Validating we ingested some data
-
-Go to the webconsole (http://localhost:9000 if running locally) and execute this query
-
-`Select * from app_monitor`
-
-Then
-
-`Select count() from app_monitor`
-
-
-## App observability simulated data: app_monitoring_ingestion.py demo
-
-This demo program will generate random data (using the Faker library) simulating application usage data into a table named "app_monitor".
-Data is ingested using the pg_wire protocol. Note we don't need to create the table beforehand, as the script starts with a call to `CREATE TABLE IT NOT EXISTS`.
-
-This demo will generate one row every 100 milliseconds until stopped. You can interrupt the program at any point while executing without any side effects.
-
-### Configuration
-
-It defaults to localhost with all the QuestDB defaults, but can be adapted to use different credentials (including QuestDB Cloud) by setting these environment variables:
-* QDB_CLIENT_HOST, defaults to '127.0.0.1'
-* QDB_CLIENT_PORT, defaults to 8812
-* QDB_CLIENT_PG_USER, defaults to 'admin'
-* QDB_CLIENT_PG_PASSWORD, defaults to 'quest'
-
-### Running the program
-
-`python app_monitoring_ingestion.py`
-
-### Validating we ingested some data
-
-Go to the webconsole (http://localhost:9000 if running locally) and execute this query
-
-`Select * from app_monitor`
-
-Then
-
-`Select count() from app_monitor`
 
 
 ## Live financial data from Yahoo Finance: ticker_ingestion.py demo
