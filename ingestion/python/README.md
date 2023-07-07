@@ -2,10 +2,10 @@
 
 We provide three different scripts to ingest data into QuestDB:
 
-    * ilp_ingestion: simulates IoT data using the ILP protocol. It only requires the questdb library. This script is also available in the Go and JAVA samples. The
-    demo Grafana dashboard provided in this quickstart works on this table
-    * app_monitoring_ingestion: simulates app observability data using the PostgreSQL protocol. It requires the psycopg and the faker libraries
-    * ticker_ingestion: reads real live data from Yahoo Finance and inserts into QuestDB using the PostgreSQL protocol. It requires the psycopg and the yliveticker libraries
+* ilp_ingestion: simulates IoT data using the ILP protocol. It only requires the questdb library. This script is also available in the Go and JAVA samples. The
+demo Grafana dashboard provided in this quickstart works on this table
+* app_monitoring_ingestion: simulates app observability data using the PostgreSQL protocol. It requires the psycopg and the faker libraries
+* ticker_ingestion: reads real live data from Yahoo Finance and inserts into QuestDB using the PostgreSQL protocol. It requires the psycopg and the yliveticker libraries
 
 You can install each dependency manually using `pip`, or just all of them via
 
