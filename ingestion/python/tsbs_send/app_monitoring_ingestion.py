@@ -22,7 +22,7 @@ def get_fake_generator():
         "/stock/sell",
         "/stock/check",
         "/user/profile",
-        "/contract/download"
+        "/file/download"
         ],
 )
     fake_generator = Faker()
@@ -43,7 +43,7 @@ def fake_row(fake_generator):
     if row['app_action'] == "/stock/buy":
         row['credit_card_provider'] = fake_generator.credit_card_provider()
     row['file_name'] = None
-    if row['app_action'] == "/contract/download":
+    if row['app_action'] == "/file/download":
         row['file_name'] = fake_generator.file_path(extension='pdf')
     row['ip']=fake_generator.ipv4_private()
     row['method']=fake_generator.http_method()
@@ -82,34 +82,34 @@ if __name__ == '__main__':
                 row=fake_row(fg)
                 cur.execute('''
                     INSERT INTO app_monitor(
+                        timestamp,
                         name,
                         username,
                         email,
                         company,
                         app_action,
+                        method,
+                        time_ms,
                         credit_card_provider,
                         file_name,
                         ip,
-                        method,
-                        user_agent,
                         country_code,
-                        time_ms,
-                        timestamp
+                        user_agent
                         )
                     VALUES (
+                        %(timestamp)s,
                         %(name)s,
                         %(username)s,
                         %(email)s,
                         %(company)s,
                         %(app_action)s,
+                        %(method)s,
+                        %(time_ms)s,
                         %(credit_card_provider)s,
                         %(file_name)s,
                         %(ip)s,
-                        %(method)s,
-                        %(user_agent)s,
                         %(country_code)s,
-                        %(time_ms)s,
-                        %(timestamp)s
+                        %(user_agent)s
                     )
                     '''
                     , row
