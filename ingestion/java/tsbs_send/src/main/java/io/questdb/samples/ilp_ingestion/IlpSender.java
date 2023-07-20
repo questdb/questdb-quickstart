@@ -11,7 +11,7 @@ public class IlpSender {
 
     public static void main(String[] args) {
         Random random = new Random();
-        int max_items = 100000, batch = 100, delay_ms = 500;
+        int max_items = 1000000, batch = 100, delay_ms = 500;
 
         try (Sender sender = Sender.builder()
                 .address("localhost:9009")

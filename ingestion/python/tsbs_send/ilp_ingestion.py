@@ -6,16 +6,16 @@ import time
 
 HOST = os.getenv('QDB_CLIENT_HOST', 'localhost')
 PORT = os.getenv('QDB_CLIENT_PORT', 9009)
-TLS = os.getenv('QDB_CLIENT_TLS', False ).lower() in ('true', '1', 't')
+TLS = os.getenv('QDB_CLIENT_TLS', "False" ).lower() in ('true', '1', 't')
 AUTH_KID = os.getenv('QDB_CLIENT_AUTH_KID')
 AUTH_D = os.getenv('QDB_CLIENT_AUTH_D')
 AUTH_X = os.getenv('QDB_CLIENT_AUTH_X')
 AUTH_Y = os.getenv('QDB_CLIENT_AUTH_Y')
 
 DEVICE_TYPES = ["blue", "red", "green", "yellow"]
-ITER = 3600
-BATCH = 10
-DELAY = 1
+ITER = 10000
+BATCH = 100
+DELAY = 0.5
 MIN_LAT = 19.50139
 MAX_LAT = 64.85694
 MIN_LON = -161.75583

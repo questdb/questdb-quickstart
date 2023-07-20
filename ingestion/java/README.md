@@ -4,7 +4,7 @@ For ingesting data we are adding QuestDB as a dependency.
 
 The demo program will generate random data simulating IoT sensor data into a table named "ilp_test". Note we don't need to create the table beforehand, as QuestDB will automatically create a table, if it doesn't already exist, when we start sending data.
 
-This demo will generate and ingest 100,000 events in batches of 100 events every 500 milliseconds. You can interrupt the program at any point while executing without any side effects.
+This demo will generate and ingest 1,000,000 events in batches of 100 events every 500 milliseconds. You can interrupt the program at any point while executing without any side effects.
 
 ## Getting the dependencies
 

@@ -8,12 +8,21 @@ import (
 
 	qdb "github.com/questdb/go-questdb-client"
 )
+/*
+func getEnv(key, fallback string) string {
+    if value, ok := os.LookupEnv(key); ok {
+        return value
+    }
+    return fallback
+}*/
 
 func main() {
+	host := "localhost" //getEnv("QDB_CLIENT_HOST", "localhost")
+	port := "9009" // getEnv("QDB_CLIENT_PORT", "9009")
 	ctx := context.TODO()
 	sender, err := qdb.NewLineSender(
 		ctx,
-		qdb.WithAddress("localhost:9009"),
+		qdb.WithAddress(host + ":" + port),
 	)
 	if err != nil {
 		log.Fatal(err)
@@ -24,7 +33,7 @@ func main() {
 		device_types = []string{"blue", "red", "green", "yellow"}
 	)
 
-	iter := 1000
+	iter := 10000
 	batch := 100
 
 	ts := 1
@@ -37,7 +46,7 @@ func main() {
 
 	for it := 0; it < iter; it++ {
 		for i := 0; i < batch; i++ {
-			t := time.Now()
+			//t := time.Now()
 			err = sender.
 				Table("ilp_test").
 				Symbol("device_type", device_types[rand.Intn(len(device_types))]).
@@ -47,7 +56,8 @@ func main() {
 				Int64Column("measure1", int64(rand.Int31())).
 				Int64Column("measure2", int64(rand.Int31())).
 				Int64Column("speed", int64(rand.Intn(100))).
-				At(ctx, t.UnixNano())
+				AtNow(ctx)
+				//At(ctx, t.UnixNano())
 			if err != nil {
 				log.Fatal(err)
 			}
