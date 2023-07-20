@@ -12,15 +12,20 @@ Make sure you are at the `dashboard/grafana` directory before starting the grafa
 of the `./home_folder` will be used for provisioning sample dashboards, so it is important you start from the right
 relative directory.
 
+_Note: The following command uses the `env_variables` file to configure your grafana. It uses the default for a brand new
+local installation of QuestDB. If you are not running QuestDB on the local host, you need to edit that file and change
+host/port/user/password as needed. For users of QuestDB cloud you need to make sure you change the value of the
+`QDB_SSL_PG_MODE` variable on that file from `disable` to `require`._
+
 ```shell
-docker run -d -p 3000:3000 --name=grafana-quickstart --user "$(id -u)" --volume "$PWD/home_dir/data:/var/lib/grafana" --volume "$PWD/home_dir/provisioning:/etc/grafana/provisioning" grafana/grafana-oss
+docker run -d -p 3000:3000 --name=grafana-quickstart --user "$(id -u)" --volume "$PWD/home_dir/var_lib_grafana:/var/lib/grafana" --volume "$PWD/home_dir/etc_grafana:/etc/grafana/"  --env-file ./env_variables grafana/grafana-oss
 ```
 
-You can now navigate to http://localhost:3000 and log into your local Grafana installation. The first time you log in, it
-will ask for the default user (`admin`) and password (`admin`). You will need to provide a new password. After loging in,
-you will find sone icons on the menu to the left. Go to the one that says `dashboards` and select `browse`. A dashboard
-with the name `Device Data - QuestDB Demo` should appear on the list. If you open the dashboard, and assuming you are
-running the IoT example provided for Python, Go, or JAVA, you should see the charts being updated every 5 seconds.
+You can now navigate to http://localhost:3000 and log into your local Grafana installation. Log in with user `demo` and
+password `quest`. You will find sone icons on the menu to the left. Go to the one that says `dashboards` and select
+`browse`. A dashboard with the name `Device Data - QuestDB Demo` should appear on the list. If you open the dashboard,
+and assuming you are running the IoT example provided for Python, Go, or JAVA, you should see the charts being updated
+every 5 seconds.
 
 Feel free to explore Grafana and use the predefined `qdb` datasource if you want to access your data in QuestDB.
 

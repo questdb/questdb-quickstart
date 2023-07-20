@@ -32,5 +32,5 @@ go.sum
 ilp_ingestion.iml
 .vscode/
 
-dashboard/grafana/home_dir/data
-!dashboard/grafana/home_dir/data/dashboards
+dashboard/grafana/home_dir/var_lib_grafana
+!dashboard/grafana/home_dir/var_lib_grafana/dashboards
