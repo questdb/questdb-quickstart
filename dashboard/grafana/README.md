@@ -24,6 +24,17 @@ running the IoT example provided for Python, Go, or JAVA, you should see the cha
 
 Feel free to explore Grafana and use the predefined `qdb` datasource if you want to access your data in QuestDB.
 
+When you want to stop your docker container you can run:
+
+`docker stop grafana-quickstart`
+
+And if you want to remove the docker container (and optionally the image) from your drive, execute:
+
+```shell
+docker rm grafana-quickstart
+docker rmi grafana/grafana-oss
+````
+
 The rest of this README will explain how to manually provision your Grafana.
 
 ## Manual provisioning
