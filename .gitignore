@@ -30,3 +30,7 @@ go.sum
 .DS_Store
 .idea
 ilp_ingestion.iml
+.vscode/
+
+dashboard/grafana/home_dir/data
+!dashboard/grafana/home_dir/data/dashboards
