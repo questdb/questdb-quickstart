@@ -6,8 +6,8 @@ import os
 import sys
 import time
 
-HOST = os.getenv('QDB_CLIENT_HOST', '127.0.0.1')
-PORT = os.getenv('QDB_CLIENT_PORT', 8812)
+HOST = os.getenv('QDB_CLIENT_PG_HOST', '127.0.0.1')
+PORT = os.getenv('QDB_CLIENT_PG_PORT', 8812)
 PG_USER = os.getenv('QDB_CLIENT_PG_USER', 'admin')
 PG_PASSWORD = os.getenv('QDB_CLIENT_PG_PASSWORD', 'quest')
 DELAY = 0.1
