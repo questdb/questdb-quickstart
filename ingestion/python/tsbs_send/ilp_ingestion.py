@@ -7,10 +7,10 @@ import time
 HOST = os.getenv('QDB_CLIENT_HOST', 'localhost')
 PORT = os.getenv('QDB_CLIENT_PORT', 9009)
 TLS = os.getenv('QDB_CLIENT_TLS', "False" ).lower() in ('true', '1', 't')
-AUTH_KID = os.getenv('QDB_CLIENT_AUTH_KID')
-AUTH_D = os.getenv('QDB_CLIENT_AUTH_D')
-AUTH_X = os.getenv('QDB_CLIENT_AUTH_X')
-AUTH_Y = os.getenv('QDB_CLIENT_AUTH_Y')
+AUTH_KID = os.getenv('QDB_CLIENT_AUTH_KID', '')
+AUTH_D = os.getenv('QDB_CLIENT_AUTH_D', '')
+AUTH_X = os.getenv('QDB_CLIENT_AUTH_X', '')
+AUTH_Y = os.getenv('QDB_CLIENT_AUTH_Y', '')
 
 DEVICE_TYPES = ["blue", "red", "green", "yellow"]
 ITER = 10000
@@ -25,7 +25,8 @@ MAX_LON = -68.01197
 def send(host: str = HOST, port: int = PORT):
     try:
         auth = None
-        if AUTH_KID is not None and AUTH_KID is not None and AUTH_D is not None and AUTH_X is not None and AUTH_Y is not None:
+        if AUTH_KID and AUTH_D and AUTH_X and AUTH_Y:
+            sys.stdout.write(f'Ingestion using credentials\n')
             auth = ( AUTH_KID, AUTH_D, AUTH_X, AUTH_Y )
         with Sender(host, port, auth=auth, tls=TLS) as sender:
             for it in range(ITER):
@@ -50,4 +51,5 @@ def send(host: str = HOST, port: int = PORT):
 
 
 if __name__ == '__main__':
+    sys.stdout.write(f'Ingestion started. Connecting to {HOST} {PORT}\n')
     send()

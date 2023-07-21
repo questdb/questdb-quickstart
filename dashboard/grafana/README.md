@@ -21,13 +21,12 @@ host/port/user/password as needed. For users of QuestDB cloud you need to make s
 docker run -d -p 3000:3000 --name=grafana-quickstart --user "$(id -u)" --volume "$PWD/home_dir/var_lib_grafana:/var/lib/grafana" --volume "$PWD/home_dir/etc_grafana:/etc/grafana/"  --env-file ./env_variables grafana/grafana-oss
 ```
 
-You can now navigate to http://localhost:3000 and log into your local Grafana installation. Log in with user `demo` and
-password `quest`. You will find sone icons on the menu to the left. Go to the one that says `dashboards` and select
-`browse`. A dashboard with the name `Device Data - QuestDB Demo` should appear on the list. If you open the dashboard,
-and assuming you are running the IoT example provided for Python, Go, or JAVA, you should see the charts being updated
-every 5 seconds.
+You can now navigate to [http://localhost:3000/d/qdb-ilp-demo/device-data-questdb-demo?orgId=1&refresh=5s](http://localhost:3000/d/qdb-ilp-demo/device-data-questdb-demo?orgId=1&refresh=5s)
+using the user `demo` and password `quest` to see a live grafana dashboard. Assuming you are running the IoT example
+provided for Python, Go, or JAVA, you should see the charts being updated every 5 seconds.
 
-Feel free to explore Grafana and use the predefined `qdb` datasource if you want to access your data in QuestDB.
+
+Feel free to explore Grafana. Both this sample dashboard and a datasource named `qdb` are automatically created.
 
 When you want to stop your docker container you can run:
 
@@ -56,7 +55,7 @@ You can enter any name you want, for example `qdb`, for host you need to enter
 For database choose `qdb`, user `admin`, password `quest`. Those are the default values for a fresh QuestDB installation.
 If using QuestDB Cloud, refer to the "PostgreSQL Wire Protocol" section for the admin password.
 
-Out of the box, QuestDB doesn't have TLS/SSL support, so we need to select `disable` for TLS/SSL Mode, unless when using
+Out of the box, QuestDB does not support TLS/SSL, so we need to select `disable` for TLS/SSL Mode, unless when using
 the QuestDB cloud, in which case you need to select `require`.
 
 Scroll down to the bottom of the screen and click on `Save & Test`. You should see the connection is working.
