@@ -10,6 +10,11 @@ QuestDB is an Apache 2.0 licensed time-series database for high throughput inges
 * Ingesting real-time data using the official clients in Go, Java, or Python
 * Real-time dashboards with Grafana and QuestDB using the PostgreSQL connector
 
+## One-click deployment using Gitpod
+
+Click the button below to start a new development environment:
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/javier/questdb-quickstart)
 
 ## Getting started with QuestDB on docker
 

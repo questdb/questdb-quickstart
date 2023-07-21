@@ -1,0 +1,33 @@
+tasks:
+  - name: open_dashboard
+    command: |
+      gp ports await 13000 && sleep 5 && gp preview --external $(gp url 13000)/d/qdb-ilp-demo/device-data-questdb-demo?orgId=1&refresh=5s
+  - name: open_questdb_console
+    command: |
+      gp ports await 19000 && sleep 2 && gp preview --external $(gp url 19000)
+  - name: start_demo
+    command: |
+      DOCKER_COMPOSE_USER_ID=`id -u` docker-compose up
+
+
+ports:
+  - name: QuestDB Web Console
+    port: 19000
+    visibility: private
+    onOpen: ignore
+  - name: QuestDB PostgreSQL Wire protocol
+    port: 18812
+    visibility: private
+    onOpen: ignore
+  - name: QuestDB ILP ingestion protocol
+    port: 19009
+    visibility: private
+    onOpen: ignore
+  - name: QuestDB metrics and healthcheck server
+    port: 19003
+    visibility: private
+    onOpen: ignore
+  - name: Grafana
+    port: 13000
+    visibility: private
+    onOpen: ignore

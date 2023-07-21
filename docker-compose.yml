@@ -17,6 +17,7 @@ services:
     image: grafana/grafana-oss
     container_name: questdb_quickstart_grafana
     restart: always
+    user: "${DOCKER_COMPOSE_USER_ID:-}"
     ports:
       - 13000:3000
     extra_hosts:
