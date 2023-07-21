@@ -5,24 +5,49 @@ import (
 	"log"
 	"math/rand"
 	"time"
+	"os"
 
 	qdb "github.com/questdb/go-questdb-client"
 )
-/*
+
 func getEnv(key, fallback string) string {
     if value, ok := os.LookupEnv(key); ok {
         return value
     }
     return fallback
-}*/
+}
+
+func getBoolEnv(key string) bool {
+	if value, ok := os.LookupEnv(key); ok {
+		return (value == "TRUE" || value == "True" || value == "true" || value == "1" || value == "t")
+	}
+	return false
+}
 
 func main() {
-	host := "localhost" //getEnv("QDB_CLIENT_HOST", "localhost")
-	port := "9009" // getEnv("QDB_CLIENT_PORT", "9009")
+	opts := make([]qdb.LineSenderOption, 0, 4)
+
+	host := getEnv("QDB_CLIENT_HOST", "localhost")
+	port := getEnv("QDB_CLIENT_PORT", "9009")
+	opts = append(opts, qdb.WithAddress(host + ":" + port) )
+
+	auth_kid := getEnv("QDB_CLIENT_AUTH_KID","")
+	auth_d := getEnv("QDB_CLIENT_AUTH_D","")
+	log.Printf("kid %s d %s ", auth_kid, auth_d)
+    if (auth_kid != "" && auth_d != "") {
+		log.Printf("kid %s d %s ", auth_kid, auth_d)
+		opts = append(opts, qdb.WithAuth(auth_kid, auth_d))
+	}
+
+	if getBoolEnv("QDB_CLIENT_TLS") {
+		log.Printf("with TLS")
+		opts = append(opts, qdb.WithTls())
+	}
+
 	ctx := context.TODO()
 	sender, err := qdb.NewLineSender(
 		ctx,
-		qdb.WithAddress(host + ":" + port),
+		opts...
 	)
 	if err != nil {
 		log.Fatal(err)

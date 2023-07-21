@@ -13,6 +13,15 @@ This will download the go questdb package
 
 `go mod download github.com/questdb/go-questdb-client`
 
+### Configuration
+
+It defaults to localhost with all the QuestDB defaults, but can be adapted to use different credentials (or to run with TLS if using the QuestDB Cloud) by setting these environment variables:
+* QDB_CLIENT_HOST, defaults to 'localhost'
+* QDB_CLIENT_PORT, defaults to 9009
+* QDB_CLIENT_TLS, defaults to False
+* QDB_CLIENT_AUTH_KID, no default. Only used for authenticated ILP. You can find this param on your QuestDB Cloud instance console
+* QDB_CLIENT_AUTH_D, no default. Only used for authenticated ILP. You can find this param on your QuestDB Cloud instance console
+
 ## Running the program
 
 `go run src/main_orig.go`
