@@ -45,7 +45,7 @@ cd questdb-quickstart
 docker-compose up
 ```
 
-The grafana web interface will be available at http://localhost:3000/d/qdb-ilp-demo/device-data-questdb-demo?orgId=1&refresh=5s.
+The grafana web interface will be available at http://localhost:13000/d/qdb-ilp-demo/device-data-questdb-demo?orgId=1&refresh=5s.
 User is "demo" and password is "quest".
 
 The QuestDB console is available at http://localhost:19000
