@@ -56,8 +56,8 @@ This demo will generate one row every 100 milliseconds until stopped. You can in
 ### Configuration
 
 It defaults to localhost with all the QuestDB defaults, but can be adapted to use different credentials (including QuestDB Cloud) by setting these environment variables:
-* QDB_CLIENT_HOST, defaults to '127.0.0.1'
-* QDB_CLIENT_PORT, defaults to 8812
+* QDB_CLIENT_PG_HOST, defaults to '127.0.0.1'
+* QDB_CLIENT_PG_PORT, defaults to 8812
 * QDB_CLIENT_PG_USER, defaults to 'admin'
 * QDB_CLIENT_PG_PASSWORD, defaults to 'quest'
 
@@ -88,8 +88,8 @@ You can interrupt the program at any point while executing without any side effe
 ### Configuration
 
 It defaults to localhost with all the QuestDB defaults, but can be adapted to use different credentials (including QuestDB Cloud) by setting these environment variables:
-* QDB_CLIENT_HOST, defaults to '127.0.0.1'
-* QDB_CLIENT_PORT, defaults to 8812
+* QDB_CLIENT_PG_HOST, defaults to '127.0.0.1'
+* QDB_CLIENT_PG_PORT, defaults to 8812
 * QDB_CLIENT_PG_USER, defaults to 'admin'
 * QDB_CLIENT_PG_PASSWORD, defaults to 'quest'
 
