@@ -1,4 +1,4 @@
 questdb
 yliveticker
-psycopg
+psycopg[binary]
 faker
