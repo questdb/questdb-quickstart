@@ -19,7 +19,7 @@ This quickstart requires starting or deploying QuestDB, Grafana, and some ingest
 * Local installation using docker but doing step-by-step. Recommended to learn more about the details and how everything fits together
 
 
-After you install with your preferred method (instructions below) you can proceed to (loading and querying data)[./loading_and_querying_data.md]
+After you install with your preferred method (instructions below) you can proceed to [loading and querying data](./loading_and_querying_data.md)
 
 ## Fully managed deployment using Gitpod
 

@@ -1,6 +1,6 @@
 # Loading and Querying data
 
-Make sure you have a working QuestDB installation as explained at the (README)[./README.md]
+Make sure you have a working QuestDB installation as explained at the [README](./README.md)
 
 ## Loading data using a CSV
 
@@ -8,7 +8,7 @@ There are different ways of loading CSV data into QuestDB. I am showing here the
 
 Go to the url of the web console, which runs on port 9000. If you are running this on your machine, it should be running at http://localhost:9000
 
-You will see some icons at the left bar. Choose the one with an arrow pointing up. When you hover it will read "import". Click to browse or drag the provided demo file `trips.csv` at the (root of this repository)[./trips.csv]. After a few seconds, your file should be loaded.
+You will see some icons at the left bar. Choose the one with an arrow pointing up. When you hover it will read "import". Click to browse or drag the provided demo file `trips.csv` at the [root of this repository](./trips.csv). After a few seconds, your file should be loaded.
 
 Go back to the web console main screen by clicking the `</>` icon on the left menu bar.
 
