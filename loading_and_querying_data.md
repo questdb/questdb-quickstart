@@ -54,14 +54,5 @@ curl -F schema='[{"name":"timestamp", "type": "TIMESTAMP", "pattern": "yyyy-MM-d
 
 Navigate to the [QuestDB Web Console](http://localhost:9000) and explore the table we just created.
 
-## Ingesting real-time data using the official clients in Go, Java, or Python
 
-Follow the instructions at
-* https://github.com/javier/questdb-quickstart/tree/main/ingestion/go
-* https://github.com/javier/questdb-quickstart/tree/main/ingestion/java
-* https://github.com/javier/questdb-quickstart/tree/main/ingestion/python
-
-## Real-time dashboards with Grafana and QuestDB using the PostgreSQL connector
-
-Follow the instructions at https://github.com/javier/questdb-quickstart/tree/main/dashboard/grafana
 
