@@ -118,7 +118,7 @@
       "targets": [
         {
           "datasource": "qdb",
-          "format": "time_series",
+          "format": 1,
           "group": [],
           "metricColumn": "measure1",
           "rawQuery": true,
@@ -236,7 +236,7 @@
       "targets": [
         {
           "datasource": "qdb",
-          "format": "time_series",
+          "format": 1,
           "group": [],
           "metricColumn": "measure1",
           "rawQuery": true,
@@ -341,7 +341,7 @@
       "targets": [
         {
           "datasource": "qdb",
-          "format": "table",
+          "format": 1,
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
@@ -420,7 +420,7 @@
       "targets": [
         {
           "datasource": "qdb",
-          "format": "table",
+          "format": 1,
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
@@ -583,7 +583,7 @@
       "targets": [
         {
           "datasource": "qdb",
-          "format": "table",
+          "format": 1,
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
@@ -662,7 +662,7 @@
       "targets": [
         {
           "datasource": "qdb",
-          "format": "table",
+          "format": 1,
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
